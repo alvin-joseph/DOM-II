@@ -31,6 +31,7 @@ Array.from(document.links).forEach(function (link) {
         setTimeout(function(){
             link.style.color = 'black';
         }, 3000)
+        event.preventDefault();
     })
 })
 
@@ -72,4 +73,63 @@ Array.from(lowerImages).forEach(function(img){
     })
 })
 
-// 
+// bold all p tags with 'b' key
+
+const text = document.querySelectorAll("p");
+
+Array.from(text).forEach(function(element){
+    document.addEventListener("keydown", function(event){
+        if(event.key === 'b'){
+            element.style.fontWeight = 'bold';
+        }
+    })
+})
+
+// img change on mouse down
+
+const bottomImg = document.querySelector(".content-destination img");
+
+bottomImg.addEventListener('mousedown', function(event){
+    bottomImg.style.width = "50%"
+    setTimeout(function(){
+        bottomImg.style.width = "100%"
+    }, 1000)
+})
+
+//change button color
+
+const buttons = document.querySelectorAll(".btn");
+
+Array.from(buttons).forEach(function (btn) {
+    btn.addEventListener('mouseover', function(event){
+        btn.style.backgroundColor = 'black';
+        setTimeout(function(){
+            btn.style.backgroundColor = '#17a2b8';
+            btn.style.color = 'white'
+        }, 1000)
+    })
+    btn.addEventListener('click', function(event){
+        alert('Welcome to your doom!!..I mean Aboard..')
+    })
+})
+
+// bold all h4s on hover
+
+const titles = document.querySelectorAll("h4");
+
+Array.from(titles).forEach(function (title) {
+    title.addEventListener('mouseover', function(event){
+        title.style.fontWeight = 'bold';
+    })
+})
+
+// stop propagation
+
+const background = document.querySelectorAll(".destination");
+
+Array.from(background).forEach(function (div) {
+    div.addEventListener('click', function(event){
+        div.style.backgroundColor = 'grey';
+        event.stopPropagation();
+    })
+})
